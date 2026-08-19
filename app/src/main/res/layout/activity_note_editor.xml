@@ -26,17 +26,16 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomToolbar"
+        app:layout_constraintBottom_toTopOf="@+id/drawingToolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTitle">
 
-        <!-- Превью вставленной картинки из галереи -->
-        <ImageView
+        <!-- Картинка с поддержкой Pinch-to-Zoom (увеличение пальцами) -->
+        <com.mixnote.views.ZoomableImageView
             android:id="@+id/imageAttachment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="fitCenter"
             android:visibility="gone" />
 
         <EditText
@@ -56,7 +55,38 @@
             android:layout_height="match_parent" />
     </FrameLayout>
 
-    <!-- Панель инструментов -->
+    <!-- Панель инструментов для рисования (скрыта, пока не нажмем "Рисовать") -->
+    <LinearLayout
+        android:id="@+id/drawingToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EFEFEF"
+        android:orientation="horizontal"
+        android:padding="6dp"
+        android:gravity="center"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/bottomToolbar">
+
+        <Button
+            android:id="@+id/btnBrushColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="4dp"
+            android:text="Цвет кисти"
+            android:textColor="#333333"
+            android:background="@drawable/rounded_button" />
+
+        <Button
+            android:id="@+id/btnBrushSize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="4dp"
+            android:text="Толщина"
+            android:textColor="#333333"
+            android:background="@drawable/rounded_button" />
+    </LinearLayout>
+
+    <!-- Главная нижняя панель с закругленными цветными кнопками -->
     <HorizontalScrollView
         android:id="@+id/bottomToolbar"
         android:layout_width="match_parent"
@@ -76,55 +106,66 @@
                 android:id="@+id/btnToggleDraw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
                 android:text="Рисовать"
                 android:textColor="#FF6200EE"
-                style="@style/Widget.AppCompat.Button.Borderless" />
+                android:background="@drawable/rounded_button" />
                 
             <Button
                 android:id="@+id/btnToggleEraser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
                 android:text="Ластик"
                 android:textColor="#FF6200EE"
                 android:visibility="gone"
-                style="@style/Widget.AppCompat.Button.Borderless" />
+                android:background="@drawable/rounded_button" />
 
             <Button
                 android:id="@+id/btnTextColor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Цвет"
-                style="@style/Widget.AppCompat.Button.Borderless" />
+                android:layout_marginHorizontal="4dp"
+                android:text="Цвет текста"
+                android:textColor="#333333"
+                android:background="@drawable/rounded_button" />
 
             <Button
                 android:id="@+id/btnTextSize"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
                 android:text="Размер"
-                style="@style/Widget.AppCompat.Button.Borderless" />
+                android:textColor="#333333"
+                android:background="@drawable/rounded_button" />
 
             <Button
                 android:id="@+id/btnAddImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
                 android:text="Фото"
-                style="@style/Widget.AppCompat.Button.Borderless" />
+                android:textColor="#333333"
+                android:background="@drawable/rounded_button" />
 
             <Button
                 android:id="@+id/btnShare"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="В Telegram"
-                android:textColor="#0088cc"
-                style="@style/Widget.AppCompat.Button.Borderless" />
+                android:layout_marginHorizontal="4dp"
+                android:text="Отправить"
+                android:textColor="#00796B"
+                android:background="@drawable/rounded_button" />
 
             <Button
                 android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:text="Сохранить"
                 android:textColor="#FFFFFF"
                 android:backgroundTint="#FF6200EE"
-                android:text="Сохранить" />
+                android:background="@drawable/rounded_button" />
         </LinearLayout>
     </HorizontalScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
