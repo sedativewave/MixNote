@@ -80,12 +80,12 @@ class NoteEditorActivity : AppCompatActivity() {
             isDrawingMode = !isDrawingMode
             drawingCanvas.isDrawingEnabled = isDrawingMode
             if (isDrawingMode) {
-                btnToggleDraw.text = "Текст"
+                btnToggleDraw.text = "🖊️"
                 btnToggleEraser.visibility = View.VISIBLE
                 drawingToolbar.visibility = View.VISIBLE
                 hideKeyboard()
             } else {
-                btnToggleDraw.text = "Рисовать"
+                btnToggleDraw.text = "🖌️"
                 btnToggleEraser.visibility = View.GONE
                 drawingToolbar.visibility = View.GONE
                 isEraserMode = false
