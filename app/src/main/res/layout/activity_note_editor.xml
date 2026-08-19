@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#F8F9FA">
 
-    <!-- Заголовок -->
     <EditText
         android:id="@+id/editTitle"
         android:layout_width="0dp"
@@ -23,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
+        android:id="@+id/noteContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="16dp"
@@ -31,7 +31,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTitle">
 
-        <!-- Основной текст -->
+        <!-- Превью вставленной картинки из галереи -->
+        <ImageView
+            android:id="@+id/imageAttachment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:visibility="gone" />
+
         <EditText
             android:id="@+id/editContent"
             android:layout_width="match_parent"
@@ -49,45 +56,75 @@
             android:layout_height="match_parent" />
     </FrameLayout>
 
-    <!-- Панель с кнопками -->
-    <LinearLayout
+    <!-- Панель инструментов -->
+    <HorizontalScrollView
         android:id="@+id/bottomToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
         android:elevation="8dp"
-        android:orientation="horizontal"
-        android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <Button
-            android:id="@+id/btnToggleDraw"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Рисовать"
-            android:textColor="#FF6200EE"
-            style="@style/Widget.AppCompat.Button.Borderless" />
-            
-        <Button
-            android:id="@+id/btnToggleEraser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ластик"
-            android:textColor="#FF6200EE"
-            android:visibility="gone"
-            style="@style/Widget.AppCompat.Button.Borderless" />
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:gravity="center_vertical">
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            <Button
+                android:id="@+id/btnToggleDraw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Рисовать"
+                android:textColor="#FF6200EE"
+                style="@style/Widget.AppCompat.Button.Borderless" />
+                
+            <Button
+                android:id="@+id/btnToggleEraser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ластик"
+                android:textColor="#FF6200EE"
+                android:visibility="gone"
+                style="@style/Widget.AppCompat.Button.Borderless" />
 
-        <Button
-            android:id="@+id/btnSave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#FF6200EE"
-            android:text="Сохранить" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/btnTextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Цвет"
+                style="@style/Widget.AppCompat.Button.Borderless" />
+
+            <Button
+                android:id="@+id/btnTextSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Размер"
+                style="@style/Widget.AppCompat.Button.Borderless" />
+
+            <Button
+                android:id="@+id/btnAddImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Фото"
+                style="@style/Widget.AppCompat.Button.Borderless" />
+
+            <Button
+                android:id="@+id/btnShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="В Telegram"
+                android:textColor="#0088cc"
+                style="@style/Widget.AppCompat.Button.Borderless" />
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF6200EE"
+                android:text="Сохранить" />
+        </LinearLayout>
+    </HorizontalScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
