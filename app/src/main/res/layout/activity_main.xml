@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#F8F9FA">
 
-    <!-- Верхняя панель -->
+    <!-- Верхняя панель, которая будет менять цвет -->
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
@@ -14,6 +14,7 @@
         android:orientation="horizontal"
         android:padding="16dp"
         android:gravity="center_vertical"
+        android:background="#7E57C2"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -21,17 +22,18 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="MixNote by Mening"
-            android:textSize="20sp"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:textColor="#333333" />
+            android:gravity="center"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/btnSettings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Настройки"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/rounded_button" />
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@null"
+            android:text="⚙️"
+            android:textSize="24sp" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -42,6 +44,7 @@
         app:layout_constraintTop_toBottomOf="@id/topBar"
         app:layout_constraintBottom_toBottomOf="parent" />
 
+    <!-- Плавающая кнопка -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddNote"
         android:layout_width="wrap_content"
