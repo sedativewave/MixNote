@@ -23,7 +23,13 @@ import java.io.File
 import java.io.FileOutputStream
 
 class NoteEditorActivity : AppCompatActivity() {
-
+    override fun onResume() {
+        super.onResume()
+        // Окрашиваем кнопку Сохранить в выбранный цвет темы
+        val color = com.mixnote.utils.PreferencesManager(this).themeColor
+        findViewById<Button>(R.id.btnSave).setBackgroundColor(color)
+    }
+    
     private lateinit var editTitle: EditText
     private lateinit var editContent: EditText
     private lateinit var drawingCanvas: MixNoteCanvas
