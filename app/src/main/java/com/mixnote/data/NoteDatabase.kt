@@ -9,7 +9,9 @@ data class Note(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val title: String,
     val content: String,
-    val drawingPath: String? = null
+    val drawingPath: String? = null,
+    val imagePath: String? = null, // Путь к фото из галереи
+    val textSize: Float = 18f      // Размер шрифта
 )
 
 @Dao
@@ -24,13 +26,15 @@ interface NoteDao {
     suspend fun insert(note: Note)
 }
 
-@Database(entities = [Note::class], version = 1, exportSchema = false)
+@Database(entities = [Note::class], version = 2, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun noteDao(): NoteDao
     companion object {
         @Volatile private var INSTANCE: AppDatabase? = null
         fun getDatabase(context: Context): AppDatabase = INSTANCE ?: synchronized(this) {
-            Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, "mixnote_db").build().also { INSTANCE = it }
+            Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, "mixnote_db")
+                .fallbackToDestructiveMigration()
+                .build().also { INSTANCE = it }
         }
     }
 }
