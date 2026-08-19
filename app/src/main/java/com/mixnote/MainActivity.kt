@@ -2,11 +2,13 @@ package com.mixnote
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.mixnote.utils.PreferencesManager
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -19,8 +21,16 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewNotes)
         val fabAdd = findViewById<FloatingActionButton>(R.id.fabAddNote)
+        val btnSettings = findViewById<Button>(R.id.btnSettings)
 
-        // Передаем функцию, которая откроет редактор при клике на карточку
+        // Применяем сохраненный цвет темы к кнопке настроек
+        val prefs = PreferencesManager(this)
+        btnSettings.setBackgroundColor(prefs.themeColor)
+
+        btnSettings.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
+
         adapter = NoteAdapter(emptyList()) { clickedNote ->
             val intent = Intent(this, NoteEditorActivity::class.java)
             intent.putExtra("NOTE_ID", clickedNote.id)
