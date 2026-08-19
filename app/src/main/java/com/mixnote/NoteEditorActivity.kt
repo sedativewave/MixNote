@@ -93,10 +93,9 @@ class NoteEditorActivity : AppCompatActivity() {
             btnToggleEraser.text = if (isEraserMode) "Кисть" else "Ластик"
         }
 
-        // Выбор цвета кисти для рисования
         btnBrushColor.setOnClickListener {
             val colors = arrayOf("Черный", "Красный", "Синий", "Зеленый", "Фиолетовый")
-            val colorValues = intArrayOf(Color.BLACK, Color.RED, Color.BLUE, Color.GREEN, Color.parseColor("#FF6200EE"))
+            val colorValues = intArrayOf(Color.BLACK, Color.RED, Color.BLUE, Color.GREEN, Color.parseColor("#7E57C2"))
             AlertDialog.Builder(this)
                 .setTitle("Цвет кисти")
                 .setItems(colors) { _, which ->
@@ -104,7 +103,6 @@ class NoteEditorActivity : AppCompatActivity() {
                 }.show()
         }
 
-        // Выбор толщины линии кисти
         btnBrushSize.setOnClickListener {
             val sizes = arrayOf("Тонкая (5px)", "Средняя (10px)", "Толстая (20px)", "Жирная (35px)")
             val sizeValues = floatArrayOf(5f, 10f, 20f, 35f)
