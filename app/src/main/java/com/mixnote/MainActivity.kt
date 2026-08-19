@@ -12,7 +12,14 @@ import com.mixnote.utils.PreferencesManager
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
-
+    override fun onResume() {
+        super.onResume()
+        // Применяем цвет темы при каждом возвращении на главный экран
+        val color = PreferencesManager(this).themeColor
+        findViewById<android.widget.LinearLayout>(R.id.topBar).setBackgroundColor(color)
+        findViewById<FloatingActionButton>(R.id.fabAddNote).backgroundTintList = android.content.res.ColorStateList.valueOf(color)
+    }
+    
     private lateinit var adapter: NoteAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
