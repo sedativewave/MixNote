@@ -9,45 +9,37 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Настройки внешнего вида"
-        android:textSize="22sp"
+        android:text="Настройки цвета"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="#333333"
+        android:gravity="center"
         android:layout_marginBottom="24dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Выберите основной цвет приложения:"
-        android:textSize="16sp"
-        android:textColor="#666666"
-        android:layout_marginBottom="12dp" />
+    <!-- Предпросмотр цвета -->
+    <View
+        android:id="@+id/colorPreview"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_button"
+        android:layout_marginBottom="24dp" />
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Красный (Red)" android:textColor="#D32F2F"/>
+    <SeekBar android:id="@+id/seekRed" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="255" android:layout_marginBottom="16dp"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Зеленый (Green)" android:textColor="#388E3C"/>
+    <SeekBar android:id="@+id/seekGreen" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="255" android:layout_marginBottom="16dp"/>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Синий (Blue)" android:textColor="#1976D2"/>
+    <SeekBar android:id="@+id/seekBlue" android:layout_width="match_parent" android:layout_height="wrap_content" android:max="255" android:layout_marginBottom="32dp"/>
 
     <Button
-        android:id="@+id/btnColorPurple"
+        android:id="@+id/btnApplyColor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Фиолетовый"
+        android:text="Сохранить и применить"
         android:textColor="#FFFFFF"
-        android:backgroundTint="#7E57C2"
-        android:layout_marginBottom="8dp" />
-
-    <Button
-        android:id="@+id/btnColorBlue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Синий"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#1E88E5"
-        android:layout_marginBottom="8dp" />
-
-    <Button
-        android:id="@+id/btnColorGreen"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Зеленый"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#43A047"
-        android:layout_marginBottom="8dp" />
+        android:backgroundTint="#7E57C2" />
 
 </LinearLayout>
