@@ -85,7 +85,7 @@
             android:background="@drawable/rounded_button" />
     </LinearLayout>
 
-    <!-- Компактная нижняя панель с прокруткой для всех закругленных кнопок -->
+            <!-- Главная нижняя панель с ИКОНКАМИ -->
     <HorizontalScrollView
         android:id="@+id/bottomToolbar"
         android:layout_width="match_parent"
@@ -98,71 +98,71 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="6dp"
+            android:padding="8dp"
             android:gravity="center_vertical">
 
             <Button
                 android:id="@+id/btnToggleDraw"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="3dp"
-                android:text="Рисовать"
-                android:textSize="12sp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="4dp"
+                android:text="🖌️"
+                android:textSize="20sp"
                 android:background="@drawable/rounded_button" />
                 
             <Button
                 android:id="@+id/btnToggleEraser"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="3dp"
-                android:text="Ластик"
-                android:textSize="12sp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="4dp"
+                android:text="🧽"
+                android:textSize="20sp"
                 android:visibility="gone"
                 android:background="@drawable/rounded_button" />
 
             <Button
                 android:id="@+id/btnTextColor"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="3dp"
-                android:text="Цвет текста"
-                android:textSize="12sp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="4dp"
+                android:text="🎨"
+                android:textSize="20sp"
                 android:background="@drawable/rounded_button" />
 
             <Button
                 android:id="@+id/btnTextSize"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="3dp"
-                android:text="Размер"
-                android:textSize="12sp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="4dp"
+                android:text="🔠"
+                android:textSize="20sp"
                 android:background="@drawable/rounded_button" />
 
             <Button
                 android:id="@+id/btnAddImage"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="3dp"
-                android:text="Фото"
-                android:textSize="12sp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="4dp"
+                android:text="🖼️"
+                android:textSize="20sp"
                 android:background="@drawable/rounded_button" />
 
             <Button
                 android:id="@+id/btnShare"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="3dp"
-                android:text="Отправить"
-                android:textSize="12sp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="4dp"
+                android:text="📤"
+                android:textSize="20sp"
                 android:background="@drawable/rounded_button" />
 
+            <!-- Кнопка "Сохранить" останется с текстом и иконкой для понятности -->
             <Button
                 android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginHorizontal="3dp"
-                android:text="Сохранить"
-                android:textSize="12sp"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="4dp"
+                android:text="💾 Сохранить"
                 android:textColor="#FFFFFF"
                 android:background="@drawable/rounded_button" />
         </LinearLayout>
