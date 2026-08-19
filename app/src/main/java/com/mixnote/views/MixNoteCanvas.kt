@@ -31,11 +31,9 @@ class MixNoteCanvas @JvmOverloads constructor(
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         if (w > 0 && h > 0) {
-            // Если Bitmap еще нет, создаем прозрачный
             if (canvasBitmap == null) {
                 canvasBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
             } else {
-                // Если мы загрузили файл, масштабируем его под размер экрана
                 canvasBitmap = Bitmap.createScaledBitmap(canvasBitmap!!, w, h, true)
             }
             drawCanvas = Canvas(canvasBitmap!!)
@@ -85,9 +83,16 @@ class MixNoteCanvas @JvmOverloads constructor(
         }
     }
 
+    fun setBrushColor(color: Int) {
+        drawPaint.color = color
+    }
+
+    fun setBrushSize(size: Float) {
+        drawPaint.strokeWidth = size
+    }
+
     fun getBitmap(): Bitmap? = canvasBitmap
     
-    // Загрузка сохраненного рисунка из файла
     fun loadDrawing(bitmap: Bitmap) {
         canvasBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true)
         invalidate()
