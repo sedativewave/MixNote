@@ -17,6 +17,8 @@
         </activity>
 
         <activity android:name=".NoteEditorActivity" />
+        
+        <activity android:name=".SettingsActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
